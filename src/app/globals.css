@@ -98,7 +98,7 @@ body {
 
     td,
     th {
-      border: 1px solid var(--gray-3);
+      border: 1px solid black;
       box-sizing: border-box;
       min-width: 1em;
       padding: 6px 8px;
@@ -111,13 +111,13 @@ body {
     }
 
     th {
-      background-color: var(--gray-1);
+      background-color: #c7c7c7;
       font-weight: bold;
       text-align: left;
     }
 
     .selectedCell:after {
-      background: var(--gray-2);
+      background: var(#959596);
       content: "";
       left: 0;
       right: 0;
@@ -129,7 +129,7 @@ body {
     }
 
     .column-resize-handle {
-      background-color: var(--purple);
+      background-color: var(--primary);
       bottom: -2px;
       pointer-events: none;
       position: absolute;
