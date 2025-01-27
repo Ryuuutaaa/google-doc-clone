@@ -10,6 +10,7 @@ import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 
 import Image from "@tiptap/extension-image";
+import ImageResize from "tiptap-extension-resize-image";
 import { useEditor, EditorContent } from "@tiptap/react";
 
 export const Editor = () => {
@@ -25,6 +26,7 @@ export const Editor = () => {
     extensions: [
       StarterKit,
       Image,
+      ImageResize,
       Table,
       TableCell,
       TableHeader,
