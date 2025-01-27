@@ -8,6 +8,8 @@ import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
+
+import Image from "@tiptap/extension-image";
 import { useEditor, EditorContent } from "@tiptap/react";
 
 export const Editor = () => {
@@ -22,6 +24,7 @@ export const Editor = () => {
 
     extensions: [
       StarterKit,
+      Image,
       Table,
       TableCell,
       TableHeader,
