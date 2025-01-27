@@ -119,7 +119,7 @@ body {
     padding: 0;
 
     li {
-      align-items: flex-start;
+      align-items: flex-end;
       display: flex;
 
       > label {
