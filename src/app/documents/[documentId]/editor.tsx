@@ -15,7 +15,13 @@ export const Editor = () => {
       },
     },
 
-    extensions: [StarterKit, TaskItem, TaskList],
+    extensions: [
+      StarterKit,
+      TaskItem.configure({
+        nested: true,
+      }),
+      TaskList,
+    ],
     content: "<p>Hellow world</p>",
   });
   return (
