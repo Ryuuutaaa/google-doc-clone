@@ -37,7 +37,9 @@ const Toolbar = () => {
       {
         label: "Undo",
         icon: Undo2Icon,
-        onClick: () => console.log("Undo clicked"),
+        onClick: () => {
+          console.log("Undo clicked");
+        },
       },
     ],
   ];
