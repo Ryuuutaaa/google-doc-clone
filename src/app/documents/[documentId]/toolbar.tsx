@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 import { Undo2Icon, LucideIcon } from "lucide-react";
+import { useEditorStore } from "@/store/use-editor-store";
 
 interface ToolbarButtonProps {
   icon: LucideIcon;
@@ -27,6 +28,8 @@ const ToolbarButton = ({
 );
 
 const Toolbar = () => {
+  const { editor } = useEditorStore();
+  console.log("Toolbar editor", { editor });
   const sections: {
     label: string;
     icon: LucideIcon;
