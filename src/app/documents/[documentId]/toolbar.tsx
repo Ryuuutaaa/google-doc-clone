@@ -40,9 +40,7 @@ const Toolbar = () => {
       {
         label: "Undo",
         icon: Undo2Icon,
-        onClick: () => {
-          console.log("Undo clicked");
-        },
+        onClick: () => editor?.chain().focus().undo().run(),
       },
     ],
   ];
