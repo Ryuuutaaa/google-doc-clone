@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import React from "react";
-import { Undo2Icon, LucideIcon, Redo2Icon, PrinterIcon } from "lucide-react";
+import {
+  Undo2Icon,
+  LucideIcon,
+  Redo2Icon,
+  PrinterIcon,
+  SpellCheckIcon,
+} from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 
 interface ToolbarButtonProps {
@@ -52,11 +58,23 @@ const Toolbar = () => {
         icon: PrinterIcon,
         onClick: () => window.print(),
       },
+      {
+        label: "Spell Check",
+        icon: SpellCheckIcon,
+        onClick: () => {
+          const current =
+            editor?.view.dom.getAttribute("spellcheck") === "true";
+          editor?.view.dom.setAttribute(
+            "spellcheck",
+            current ? "false" : "true"
+          );
+        },
+      },
     ],
   ];
 
   return (
-    <div className="bg-[#f1f4f9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.2 overflow-auto">
+    <div className="bg-[#f1f4f9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-2 overflow-auto">
       {sections[0].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
