@@ -125,6 +125,11 @@ const Toolbar = () => {
       {sections[1].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
+
+      {/* TODO : TEXT COLOR */}
+
+      {/* TODO : HIGHLIGHT COLOR */}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
     </div>
   );
 };
