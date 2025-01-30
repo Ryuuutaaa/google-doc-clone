@@ -140,6 +140,9 @@ const Toolbar = () => {
       {/* TODO : LINE HEIGHT */}
 
       {/* TODO : :LIST */}
+      {sections[2].map((item) => (
+        <ToolbarButton key={item.label} {...item} />
+      ))}
     </div>
   );
 };
