@@ -8,8 +8,10 @@ import {
   Redo2Icon,
   PrinterIcon,
   SpellCheckIcon,
+  BoldIcon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
+import { Separator } from "@/components/ui/separator";
 
 interface ToolbarButtonProps {
   icon: LucideIcon;
@@ -71,6 +73,13 @@ const Toolbar = () => {
         },
       },
     ],
+    [
+      {
+        label: "Bold",
+        icon: BoldIcon,
+        onClick: () => editor?.chain().focus().toggleBold().run(),
+      },
+    ],
   ];
 
   return (
@@ -78,6 +87,7 @@ const Toolbar = () => {
       {sections[0].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
     </div>
   );
 };
