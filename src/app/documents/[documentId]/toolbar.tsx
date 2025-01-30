@@ -12,6 +12,7 @@ import {
   ItalicIcon,
   UnderlineIcon,
   MessageSquarePlusIcon,
+  ListTodoIcon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -102,6 +103,12 @@ const Toolbar = () => {
         icon: MessageSquarePlusIcon,
         onClick: () => console.log("TODO : Comment"),
         isActive: false, // TODO : enable this functionality
+      },
+      {
+        label: "List Todo",
+        icon: ListTodoIcon,
+        onClick: () => editor?.chain().focus().toggleTaskList().run(),
+        isActive: editor?.isActive("taskList"),
       },
     ],
   ];
