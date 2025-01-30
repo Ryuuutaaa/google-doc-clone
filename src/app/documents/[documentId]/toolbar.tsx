@@ -9,6 +9,7 @@ import {
   PrinterIcon,
   SpellCheckIcon,
   BoldIcon,
+  ItalicIcon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -77,7 +78,14 @@ const Toolbar = () => {
       {
         label: "Bold",
         icon: BoldIcon,
+        isActive: editor?.isActive("bold"),
         onClick: () => editor?.chain().focus().toggleBold().run(),
+      },
+      {
+        label: "Italic",
+        icon: ItalicIcon,
+        isActive: editor?.isActive("italic"),
+        onClick: () => editor?.chain().focus().toggleItalic().run(),
       },
     ],
   ];
