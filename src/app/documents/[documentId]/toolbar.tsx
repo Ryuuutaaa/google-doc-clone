@@ -130,6 +130,16 @@ const Toolbar = () => {
 
       {/* TODO : HIGHLIGHT COLOR */}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+
+      {/* TODO : LINK */}
+
+      {/* TODO : IMAGE */}
+
+      {/* TODO : ALIGN */}
+
+      {/* TODO : LINE HEIGHT */}
+
+      {/* TODO : :LIST */}
     </div>
   );
 };
