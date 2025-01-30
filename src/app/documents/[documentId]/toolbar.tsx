@@ -88,6 +88,15 @@ const Toolbar = () => {
         <ToolbarButton key={item.label} {...item} />
       ))}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+
+      {/* TODO : Font Family */}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+
+      {/* TODO : Heading */}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+
+      {/* TODO : Font Size */}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
     </div>
   );
 };
