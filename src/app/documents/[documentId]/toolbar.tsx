@@ -11,6 +11,7 @@ import {
   BoldIcon,
   ItalicIcon,
   UnderlineIcon,
+  MessageSquarePlusIcon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -93,6 +94,14 @@ const Toolbar = () => {
         icon: UnderlineIcon,
         isActive: editor?.isActive("underline"),
         onClick: () => editor?.chain().focus().toggleUnderline().run(),
+      },
+    ],
+    [
+      {
+        label: "Comment",
+        icon: MessageSquarePlusIcon,
+        onClick: () => console.log("TODO : Comment"),
+        isActive: false, // TODO : enable this functionality
       },
     ],
   ];
