@@ -10,6 +10,7 @@ import {
   SpellCheckIcon,
   BoldIcon,
   ItalicIcon,
+  UnderlineIcon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -86,6 +87,12 @@ const Toolbar = () => {
         icon: ItalicIcon,
         isActive: editor?.isActive("italic"),
         onClick: () => editor?.chain().focus().toggleItalic().run(),
+      },
+      {
+        label: "Underline",
+        icon: UnderlineIcon,
+        isActive: editor?.isActive("underline"),
+        onClick: () => editor?.chain().focus().toggleUnderline().run(),
       },
     ],
   ];
