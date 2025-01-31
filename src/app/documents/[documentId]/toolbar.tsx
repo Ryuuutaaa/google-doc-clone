@@ -42,7 +42,9 @@ const FontFamilyButton = () => {
           className={cn(
             "h-7 w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
           )}
-        ></button>
+        >
+          <span className="truncate"></span>
+        </button>
       </DropdownMenuTrigger>
     </DropdownMenu>
   );
