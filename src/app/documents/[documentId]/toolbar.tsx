@@ -18,6 +18,17 @@ import {
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
 
+const FontFamilyButton = () => {
+  const { editor } = useEditorStore();
+
+  const fonts = [
+    { label: "Arial", value: "Arial" },
+    { label: "Times New Roman", value: "Times New Roman" },
+    { label: "Courier New", value: "Courier New" },
+    { label: "Georgia", value: "Georgia" },
+  ];
+};
+
 interface ToolbarButtonProps {
   icon: LucideIcon;
   onClick?: () => void;
