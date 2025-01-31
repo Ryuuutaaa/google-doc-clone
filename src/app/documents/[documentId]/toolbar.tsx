@@ -50,6 +50,11 @@ const FontFamilyButton = () => {
           <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        {fonts.map(({ label, value }) => (
+          <button key={value}></button>
+        ))}
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
