@@ -60,7 +60,9 @@ const FontFamilyButton = () => {
                 "bg-neutral-200/80"
             )}
             style={{ fontFamily: value }}
-          ></button>
+          >
+            <span className="text-sm">{label}</span>
+          </button>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
@@ -175,7 +177,7 @@ const Toolbar = () => {
       ))}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
 
-      {/* TODO : Font Family */}
+      <FontFamilyButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
 
       {/* TODO : Heading */}
