@@ -52,18 +52,18 @@ const FontFamilyButton = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         {fonts.map(({ label, value }) => (
-          <button
-            onClick={() => editor?.chain().focus().setFontFamily(value).run()}
+          <DropdownMenuItem
             key={value}
+            onClick={() => editor?.chain().focus().setFontFamily(value).run()}
             className={cn(
-              "flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
+              "flex items-center gap-x-2 w-full h-full py-1 px-2 rounded-sm hover:bg-neutral-200/80 focus-visible:bg-neutral-200/80 cursor-pointer",
               editor?.getAttributes("textStyle").fontFamily === value &&
-                "bg-neutral-200/80"
+                "bg-neutral-200/80 "
             )}
             style={{ fontFamily: value }}
           >
-            <span className="text-sm">{label}</span>
-          </button>
+            <span className="text-sm"> {label} </span>
+          </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
