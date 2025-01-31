@@ -53,6 +53,7 @@ const FontFamilyButton = () => {
       <DropdownMenuContent>
         {fonts.map(({ label, value }) => (
           <button
+            onClick={() => editor?.chain().focus().setFontFamily(value).run()}
             key={value}
             className={cn(
               "flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
