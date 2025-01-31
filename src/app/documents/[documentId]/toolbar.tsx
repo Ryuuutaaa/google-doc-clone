@@ -52,7 +52,14 @@ const FontFamilyButton = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         {fonts.map(({ label, value }) => (
-          <button key={value}></button>
+          <button
+            key={value}
+            className={cn(
+              "flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
+              editor?.getAttributes("textStyle").fontFamily === value &&
+                "bg-neutral-200/80"
+            )}
+          ></button>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
