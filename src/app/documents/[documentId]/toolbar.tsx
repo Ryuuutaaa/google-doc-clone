@@ -43,7 +43,9 @@ const FontFamilyButton = () => {
             "h-7 w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
           )}
         >
-          <span className="truncate"></span>
+          <span className="truncate">
+            {editor?.getAttributes("textStyle").fontFamily || "Arial"}
+          </span>
         </button>
       </DropdownMenuTrigger>
     </DropdownMenu>
