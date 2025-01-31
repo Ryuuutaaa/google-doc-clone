@@ -16,6 +16,8 @@ import { useEditorStore } from "@/store/use-editor-store";
 
 import Underline from "@tiptap/extension-underline";
 
+import FontFamlily from "@tiptap/extension-font-family";
+
 export const Editor = () => {
   const { setEditor } = useEditorStore();
 
@@ -62,6 +64,7 @@ export const Editor = () => {
 
     extensions: [
       StarterKit,
+      FontFamlily,
       Underline,
       Image,
       ImageResize,
