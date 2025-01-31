@@ -14,6 +14,7 @@ import {
   MessageSquarePlusIcon,
   ListTodoIcon,
   RemoveFormattingIcon,
+  ChevronDownIcon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -46,6 +47,7 @@ const FontFamilyButton = () => {
           <span className="truncate">
             {editor?.getAttributes("textStyle").fontFamily || "Arial"}
           </span>
+          <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
     </DropdownMenu>
