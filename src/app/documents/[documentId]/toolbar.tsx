@@ -59,6 +59,7 @@ const FontFamilyButton = () => {
               editor?.getAttributes("textStyle").fontFamily === value &&
                 "bg-neutral-200/80"
             )}
+            style={{ fontFamily: value }}
           ></button>
         ))}
       </DropdownMenuContent>
