@@ -15,6 +15,7 @@ import {
   ListTodoIcon,
   RemoveFormattingIcon,
   ChevronDownIcon,
+  Heading,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -26,7 +27,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const headingLeaveButton = () => {
+const HeadingLeaveButton = () => {
   const { editor } = useEditorStore();
 
   const headings = [
@@ -72,7 +73,9 @@ const headingLeaveButton = () => {
                 (editor?.isActive("heading", { level: value }) &&
                   "bg-neutral-200/80 ")
             )}
-          ></button>
+          >
+            {label}
+          </button>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
@@ -234,7 +237,7 @@ const Toolbar = () => {
       <FontFamilyButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
 
-      {/* TODO : Heading */}
+      <HeadingLeaveButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
 
       {/* TODO : Font Size */}
