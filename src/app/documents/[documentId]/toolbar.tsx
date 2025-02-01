@@ -26,6 +26,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+const headingLeaveButton = () => {
+  const { editor } = useEditorStore();
+
+  const headings = [{ label: "Normal text", value: 0, fontSize: "16px" }];
+};
+
 const FontFamilyButton = () => {
   const { editor } = useEditorStore();
 
