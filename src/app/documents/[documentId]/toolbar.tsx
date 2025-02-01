@@ -15,7 +15,6 @@ import {
   ListTodoIcon,
   RemoveFormattingIcon,
   ChevronDownIcon,
-  Heading,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -26,6 +25,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+import { type Level } from "@tiptap/extension-heading";
 
 const HeadingLeaveButton = () => {
   const { editor } = useEditorStore();
@@ -56,17 +57,26 @@ const HeadingLeaveButton = () => {
             "h-7 min-w-7 shrink-0 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
           )}
         >
-          <span className="truncate">
-            {editor?.getAttributes("textStyle").fontFamily || "Arial"}
-          </span>
+          <span className="truncate">{getCurrentHeading()}</span>
           <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
         {headings.map(({ label, value, fontSize }) => (
           <button
             key={value}
             style={{ fontSize }}
+            onClick={() => {
+              if (value === 0) {
+                editor?.chain().focus().setParagraph().run();
+              } else {
+                editor
+                  ?.chain()
+                  .focus()
+                  .toggleHeading({ level: value as Level })
+                  .run();
+              }
+            }}
             className={cn(
               "flex items-center gap-x-2 w-full h-full py-1 px-2 rounded-sm hover:bg-neutral-200/80 focus-visible:bg-neutral-200/80 cursor-pointer",
               (value === 0 && !editor?.isActive("heading")) ||
