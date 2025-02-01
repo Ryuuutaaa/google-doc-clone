@@ -69,7 +69,7 @@ export const Editor = () => {
     extensions: [
       StarterKit,
       Color,
-      Highlight,
+      Highlight.configure({ multicolor: true }),
       TextStyle,
       fontFamily,
       Underline,

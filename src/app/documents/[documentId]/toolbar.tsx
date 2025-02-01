@@ -28,6 +28,16 @@ import {
 
 import { type Level } from "@tiptap/extension-heading";
 
+const TextColorButton = () => {
+  const { editor } = useEditorStore();
+
+  const value = editor?.getAttributes("textStyle").color || "#00000";
+
+  const onChange = (color : ColorResult) => {
+    
+  }
+};
+
 const HeadingLeaveButton = () => {
   const { editor } = useEditorStore();
 
