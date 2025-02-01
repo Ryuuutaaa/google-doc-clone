@@ -61,6 +61,20 @@ const headingLeaveButton = () => {
           <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        {headings.map(({ label, value, fontSize }) => (
+          <button
+            key={value}
+            style={{ fontSize }}
+            className={cn(
+              "flex items-center gap-x-2 w-full h-full py-1 px-2 rounded-sm hover:bg-neutral-200/80 focus-visible:bg-neutral-200/80 cursor-pointer",
+              (value === 0 && !editor?.isActive("heading")) ||
+                (editor?.isActive("heading", { level: value }) &&
+                  "bg-neutral-200/80 ")
+            )}
+          ></button>
+        ))}
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
