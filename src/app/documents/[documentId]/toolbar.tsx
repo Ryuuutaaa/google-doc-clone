@@ -37,7 +37,16 @@ const headingLeaveButton = () => {
     { label: "Heading 4", value: 4, fontSize: "18px" },
     { label: "Heading 5", value: 5, fontSize: "16px" },
   ];
-};
+
+
+  const getCurrentHeading = () => {
+    for(let level = 1; level <= 5; level++) {
+      if(editor?.isActive(`heading-${level}`)) {
+        return `Heading ${level}`;
+      }
+    }
+    return "Normal Text";
+  };
 
 const FontFamilyButton = () => {
   const { editor } = useEditorStore();
