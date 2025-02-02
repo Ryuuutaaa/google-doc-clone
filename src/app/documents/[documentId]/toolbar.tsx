@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import React from "react";
+import { type ColorResult } from "react-color";
 import {
   Undo2Icon,
   LucideIcon,
@@ -33,9 +34,7 @@ const TextColorButton = () => {
 
   const value = editor?.getAttributes("textStyle").color || "#00000";
 
-  const onChange = (color : ColorResult) => {
-    
-  }
+  const onChange = (color: ColorResult) => {};
 };
 
 const HeadingLeaveButton = () => {
