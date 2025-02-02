@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import React from "react";
-import { type ColorResult, CirclePicker } from "react-color";
+import { type ColorResult, SketchPicker } from "react-color";
 import {
   Undo2Icon,
   LucideIcon,
@@ -51,7 +51,7 @@ const TextColorButton = () => {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-2.5">
-        <CirclePicker color={color} onChange={handleColorChange} />
+        <SketchPicker color={color} onChange={handleColorChange} />
       </DropdownMenuContent>
     </DropdownMenu>
   );
