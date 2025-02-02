@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import React from "react";
+import { type ColorResult, SketchPicker } from "react-color";
 import {
   Undo2Icon,
   LucideIcon,
@@ -15,6 +16,7 @@ import {
   ListTodoIcon,
   RemoveFormattingIcon,
   ChevronDownIcon,
+  HighlighterIcon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -27,6 +29,60 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { type Level } from "@tiptap/extension-heading";
+
+const HighlightColorButton = () => {
+  const { editor } = useEditorStore();
+  const color = editor?.getAttributes("highlight").color || "#FFFF00";
+
+  const handleColorChange = (colorResult: ColorResult) => {
+    editor?.chain().focus().setHighlight({ color: colorResult.hex }).run();
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          className={cn(
+            "h-7 min-w-7 shrink-0 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
+          )}
+        >
+          <HighlighterIcon className="size-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-2.5">
+        <SketchPicker color={color} onChange={handleColorChange} />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
+const TextColorButton = () => {
+  const { editor } = useEditorStore();
+  const color = editor?.getAttributes("textStyle").color || "#000000";
+
+  const handleColorChange = (colorResult: ColorResult) => {
+    editor?.chain().focus().setColor(colorResult.hex).run();
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          className={cn(
+            "h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
+          )}
+        >
+          <span style={{ color }} className="text-lg font-semibold uppercase">
+            A
+          </span>
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-2.5">
+        <SketchPicker color={color} onChange={handleColorChange} />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
 const HeadingLeaveButton = () => {
   const { editor } = useEditorStore();
@@ -257,9 +313,8 @@ const Toolbar = () => {
         <ToolbarButton key={item.label} {...item} />
       ))}
 
-      {/* TODO : TEXT COLOR */}
-
-      {/* TODO : HIGHLIGHT COLOR */}
+      <TextColorButton />
+      <HighlightColorButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
 
       {/* TODO : LINK */}
