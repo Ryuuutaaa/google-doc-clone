@@ -16,6 +16,7 @@ import {
   ListTodoIcon,
   RemoveFormattingIcon,
   ChevronDownIcon,
+  HighlighterIcon,
 } from "lucide-react";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator";
@@ -28,6 +29,32 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { type Level } from "@tiptap/extension-heading";
+
+const HighlightColorButton = () => {
+  const { editor } = useEditorStore();
+  const color = editor?.getAttributes("textStyle").color || "#000000";
+
+  const handleColorChange = (color: ColorResult) => {
+    editor?.chain().focus().setHighlight({ color: color.hex }).run();
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          className={cn(
+            "h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
+          )}
+        >
+          <HighlighterIcon className="size-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-2.5">
+        <SketchPicker onChange={handleColorChange} />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
 const TextColorButton = () => {
   const { editor } = useEditorStore();
