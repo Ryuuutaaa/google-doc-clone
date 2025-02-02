@@ -43,7 +43,7 @@ const TextColorButton = () => {
       <DropdownMenuTrigger asChild>
         <button
           className={cn(
-            "h-7 min-w-7 shrink-0 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
+            "h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
           )}
         >
           <span className="text-xs">A</span>
@@ -289,8 +289,7 @@ const Toolbar = () => {
         <ToolbarButton key={item.label} {...item} />
       ))}
 
-      {/* TODO : TEXT COLOR */}
-
+      <TextColorButton />
       {/* TODO : HIGHLIGHT COLOR */}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
 
