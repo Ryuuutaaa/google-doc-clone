@@ -53,6 +53,9 @@ const TextColorButton = () => {
           ></div>
         </button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-2.5">
+        <CirclePicker color={value} onChange={onChange} />
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
