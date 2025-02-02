@@ -314,7 +314,7 @@ const Toolbar = () => {
       ))}
 
       <TextColorButton />
-      {/* TODO : HIGHLIGHT COLOR */}
+      <HighlightColorButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
 
       {/* TODO : LINK */}
