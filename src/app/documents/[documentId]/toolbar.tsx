@@ -31,11 +31,10 @@ import { type Level } from "@tiptap/extension-heading";
 
 const TextColorButton = () => {
   const { editor } = useEditorStore();
+  const color = editor?.getAttributes("textStyle").color || "#000000";
 
-  const value = editor?.getAttributes("textStyle").color || "#00000";
-
-  const onChange = (color: ColorResult) => {
-    editor?.chain().focus().setColor(color.hex).run();
+  const handleColorChange = (colorResult: ColorResult) => {
+    editor?.chain().focus().setColor(colorResult.hex).run();
   };
 
   return (
@@ -46,15 +45,13 @@ const TextColorButton = () => {
             "h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
           )}
         >
-          <span className="text-xs">A</span>
-          <div
-            className="h-0.5 w-full"
-            style={{ backgroundColor: value }}
-          ></div>
+          <span style={{ color }} className="text-lg font-semibold uppercase">
+            A
+          </span>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-2.5">
-        <CirclePicker color={value} onChange={onChange} />
+        <CirclePicker color={color} onChange={handleColorChange} />
       </DropdownMenuContent>
     </DropdownMenu>
   );
