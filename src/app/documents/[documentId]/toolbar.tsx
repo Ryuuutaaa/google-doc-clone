@@ -37,6 +37,14 @@ const TextColorButton = () => {
   const onChange = (color: ColorResult) => {
     editor?.chain().focus().setColor(color.hex).run();
   };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button></button>
+      </DropdownMenuTrigger>
+    </DropdownMenu>
+  );
 };
 
 const HeadingLeaveButton = () => {
