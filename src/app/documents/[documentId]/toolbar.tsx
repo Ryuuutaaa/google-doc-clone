@@ -53,8 +53,12 @@ const LinkButton = () => {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-2.5 flex items-center gap-x-2">
-        <Input />
-        <Button />
+        <Input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="https://example.com"
+        />
+        <Button onClick={() => onChange(value)}>Appy</Button>
       </DropdownMenuContent>
     </DropdownMenu>
   );
