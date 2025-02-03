@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { useState } from "react";
 import { type ColorResult, SketchPicker } from "react-color";
 import {
   Undo2Icon,
@@ -29,6 +29,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { type Level } from "@tiptap/extension-heading";
+
+const LinkButton = () => {
+  const { editor } = useEditorStore();
+  const [value, setValue] = useState(editor?.getAttributes("link").href || "");
+
+
+};
 
 const HighlightColorButton = () => {
   const { editor } = useEditorStore();
