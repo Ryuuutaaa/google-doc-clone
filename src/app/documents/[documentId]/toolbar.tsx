@@ -34,7 +34,9 @@ const LinkButton = () => {
   const { editor } = useEditorStore();
   const [value, setValue] = useState(editor?.getAttributes("link").href || "");
 
-
+  const onChange = (href: string) => {
+    editor?.chain().focus().extendMarkRange("link").setLink({ href }).run();
+  };
 };
 
 const HighlightColorButton = () => {
