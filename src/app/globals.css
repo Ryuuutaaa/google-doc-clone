@@ -88,6 +88,16 @@ body {
 }
 
 .tiptap {
+  /* link styles */
+  a {
+    color: var(--purple);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--purple-contrast);
+    }
+  }
+
   /* image-specific styling */
   img {
     display: block;
