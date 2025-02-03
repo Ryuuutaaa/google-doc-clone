@@ -52,13 +52,16 @@ const LinkButton = () => {
           <Link2Icon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-2.5 flex items-center gap-x-2">
+      <DropdownMenuContent className="p-2.5 flex flex-col gap-y-2">
         <Input
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="https://example.com"
+          className="w-full"
         />
-        <Button onClick={() => onChange(value)}>Appy</Button>
+        <Button onClick={() => onChange(value)} className="w-full">
+          Apply
+        </Button>
       </DropdownMenuContent>
     </DropdownMenu>
   );
@@ -351,7 +354,7 @@ const Toolbar = () => {
       <HighlightColorButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
 
-      {/* TODO : LINK */}
+      <LinkButton />
 
       {/* TODO : IMAGE */}
 
