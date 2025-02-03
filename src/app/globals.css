@@ -90,11 +90,11 @@ body {
 .tiptap {
   /* link styles */
   a {
-    color: var(--purple);
+    @apply text-blue-600;
     cursor: pointer;
 
     &:hover {
-      color: var(--purple-contrast);
+      @apply underline;
     }
   }
 
