@@ -42,19 +42,14 @@ const LinkButton = () => {
     setValue("");
   };
 
-  const onOpenChange = (open: boolean) => {
-    if (open) {
-      setValue(editor?.getAttributes("link").href || "");
-    }
-  };
-
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger onOpenChange={onOpenChange} asChild>
+      <DropdownMenuTrigger asChild>
         <button
           className={cn(
             "h-7 min-w-7 shrink-0 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
           )}
+          onClick={() => setValue(editor?.getAttributes("link").href || "")}
         >
           <Link2Icon className="size-4" />
         </button>
