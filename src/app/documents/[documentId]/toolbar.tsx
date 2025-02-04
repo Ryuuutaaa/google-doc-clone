@@ -33,6 +33,43 @@ import { type Level } from "@tiptap/extension-heading";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+const ImageButton = () => {
+  const { editor } = useEditorStore();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [imageUrl, seImageUrl] = useState(" ");
+
+  const onChange = (href: string) => {
+    editor?.chain().focus().extendMarkRange("link").setLink({ href }).run();
+    setValue("");
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          className={cn(
+            "h-7 min-w-7 shrink-0 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
+          )}
+          onClick={() => setValue(editor?.getAttributes("link").href || "")}
+        >
+          <Link2Icon className="size-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-2.5 flex flex-col gap-y-2">
+        <Input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="https://example.com"
+          className="w-full"
+        />
+        <Button onClick={() => onChange(value)} className="w-full">
+          Apply
+        </Button>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
 const LinkButton = () => {
   const { editor } = useEditorStore();
   const [value, setValue] = useState(editor?.getAttributes("link").href || "");
