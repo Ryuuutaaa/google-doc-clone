@@ -39,13 +39,19 @@ const LinkButton = () => {
 
   const onChange = (href: string) => {
     editor?.chain().focus().extendMarkRange("link").setLink({ href }).run();
+    setValue("");
+  };
+
+  const onOpenChange = (open: boolean) => {
+    if (open) {
+      setValue(editor?.getAttributes("link").href || "");
+    }
   };
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger onOpenChange={onOpenChange} asChild>
         <button
-          onClick={() => setValue(editor?.getAttributes("link").href)}
           className={cn(
             "h-7 min-w-7 shrink-0 flex items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
           )}
